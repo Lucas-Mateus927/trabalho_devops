@@ -3,7 +3,14 @@
   "version": "1.0.0",
   "description": "Base para o trabalho de DevOps",
   "scripts": {
-    "start": "echo 'Container iniciado com sucesso!' && tail -f /dev/null"
+    "start": "echo 'Container iniciado com sucesso!' && tail -f /dev/null",
+    "test": "jest"
   },
-  "dependencies": {}
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "jest": "^30.4.2",
+    "supertest": "^7.2.2"
+  }
 }
