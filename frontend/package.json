@@ -1,0 +1,9 @@
+{
+  "name": "startup-app",
+  "version": "1.0.0",
+  "description": "Base para o trabalho de DevOps",
+  "scripts": {
+    "start": "echo 'Container iniciado com sucesso!' && tail -f /dev/null"
+  },
+  "dependencies": {}
+}
