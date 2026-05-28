@@ -7,4 +7,10 @@ describe('Testes da API de Pedidos', () => {
     expect(res.statusCode).toEqual(200);
     expect(res.body).toHaveProperty('message');
   });
+
+  it('Deve retornar status 200 e status UP no endpoint /health', async () => {
+    const res = await request(app).get('/health');
+    expect(res.statusCode).toEqual(200);
+    expect(res.body).toHaveProperty('status', 'UP');
+  });
 });
