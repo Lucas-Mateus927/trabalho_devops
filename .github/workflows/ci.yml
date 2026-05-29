@@ -18,9 +18,9 @@ jobs:
       postgres:
         image: postgres:15
         env:
-          POSTGRES_USER: ${{ secrets.DB_USER }}
-          POSTGRES_PASSWORD: ${{ secrets.DB_PASSWORD }}
-          POSTGRES_DB: ${{ secrets.DB_NAME }}
+          POSTGRES_USER: ${{ secrets.DB_USER || 'usuario_startup' }}
+          POSTGRES_PASSWORD: ${{ secrets.DB_PASSWORD || 'senhasegura123' }}
+          POSTGRES_DB: ${{ secrets.DB_NAME || 'pedidos_db' }}
         ports:
           - 5432:5432
         options: >-
@@ -32,10 +32,10 @@ jobs:
     env:
       DB_HOST: localhost
       DB_PORT: 5432
-      DB_USER: ${{ secrets.DB_USER }}
-      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-      DB_NAME: ${{ secrets.DB_NAME }}
-      API_URL: ${{ secrets.API_URL }}
+      DB_USER: ${{ secrets.DB_USER || 'usuario_startup' }}
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD || 'senhasegura123' }}
+      DB_NAME: ${{ secrets.DB_NAME || 'pedidos_db' }}
+      API_URL: ${{ secrets.API_URL || 'http://localhost:3000' }}
       NODE_ENV: test
 
     steps:
@@ -69,10 +69,10 @@ jobs:
       - name: Criar arquivo .env para o build
         run: |
           cat > .env <<EOF
-          DB_USER=${{ secrets.DB_USER }}
-          DB_PASSWORD=${{ secrets.DB_PASSWORD }}
-          DB_NAME=${{ secrets.DB_NAME }}
-          API_URL=${{ secrets.API_URL }}
+          DB_USER=${{ secrets.DB_USER || 'usuario_startup' }}
+          DB_PASSWORD=${{ secrets.DB_PASSWORD || 'senhasegura123' }}
+          DB_NAME=${{ secrets.DB_NAME || 'pedidos_db' }}
+          API_URL=${{ secrets.API_URL || 'http://localhost:3000' }}
           EOF
 
       - name: Build das imagens via Docker Compose
