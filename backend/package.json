@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Base para o trabalho de DevOps",
   "scripts": {
-    "start": "echo 'Container iniciado com sucesso!' && tail -f /dev/null",
-    "test": "jest"
+    "start": "node src/app.js",
+    "test": "jest --forceExit"
   },
   "dependencies": {
     "express": "^5.2.1"
